@@ -251,7 +251,7 @@ export default function PricingPage() {
     const planList = plans || []
 
     setGroups(gList)
-    setTemplates(tList)
+    setTemplates(tList as unknown as Template[])
 
     // Group state — uses 3 plans
     const gState: Record<string, GroupPriceState> = {}
