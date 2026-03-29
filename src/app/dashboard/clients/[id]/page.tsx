@@ -4,7 +4,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 import { format } from 'date-fns'
 
-export default async function ClientDetailPage({ params }: { params: { id: string } }) {
+export default async function ClientDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
@@ -12,7 +13,7 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
   const { data: client } = await supabase
     .from('clients')
     .select('*')
-    .eq('id', params.id)
+    .eq('id', id)
     .eq('lawyer_id', user.id)
     .single()
 
@@ -21,7 +22,7 @@ export default async function ClientDetailPage({ params }: { params: { id: strin
   const { data: cases } = await supabase
     .from('cases')
     .select('*')
-    .eq('client_id', params.id)
+    .eq('client_id', id)
     .eq('lawyer_id', user.id)
     .order('created_at', { ascending: false })
 
