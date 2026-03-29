@@ -3,6 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 import { format, startOfMonth } from 'date-fns'
 
+export const runtime = 'edge'
+
 export default async function AdminDashboard() {
   const supabase = await createClient()
 

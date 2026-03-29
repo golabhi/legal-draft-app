@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+export const runtime = 'edge'
+
 const LANG_CODES: Record<string, string> = {
   gu: 'gu-t-i0-und',
   hi: 'hi-t-i0-und',

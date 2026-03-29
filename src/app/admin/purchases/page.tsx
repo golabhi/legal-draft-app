@@ -2,6 +2,8 @@ import { createClient } from '@/lib/supabase/server'
 import Header from '@/components/Header'
 import PurchasesClient from './PurchasesClient'
 
+export const runtime = 'edge'
+
 export default async function AdminPurchasesPage() {
   const supabase = await createClient()
 

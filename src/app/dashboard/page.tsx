@@ -3,6 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 import { format } from 'date-fns'
 
+export const runtime = 'edge'
+
 export default async function DashboardPage() {
   const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()

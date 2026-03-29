@@ -2,6 +2,8 @@ import { createClient } from '@/lib/supabase/server'
 import Header from '@/components/Header'
 import UsersTable from './UsersTable'
 
+export const runtime = 'edge'
+
 export default async function UsersPage() {
   const supabase = await createClient()
 

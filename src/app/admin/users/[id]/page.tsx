@@ -3,6 +3,8 @@ import Header from '@/components/Header'
 import Link from 'next/link'
 import { format } from 'date-fns'
 
+export const runtime = 'edge'
+
 export default async function UserDetailPage({ params }: { params: Promise<{ id: string }> }) {
   const supabase = await createClient()
   const { id: userId } = await params

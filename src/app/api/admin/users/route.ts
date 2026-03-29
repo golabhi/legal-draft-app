@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { createClient } from '@supabase/supabase-js'
 import { createClient as createServerClient } from '@/lib/supabase/server'
 
+export const runtime = 'edge'
+
 export async function GET(request: NextRequest) {
   try {
     // Verify the requesting user is an admin
